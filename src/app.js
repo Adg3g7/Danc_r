@@ -5,32 +5,17 @@ var main = new UI.Card({
   title: 'Danc_r',
   icon: 'images/menu_icon.png',
   subtitle: 'dance app',
-  body: 'Press up for menu. Press select for fancy text. Press down for info about this app.'
+  body: 'Press select and start dancing or Press up for more info and Press down for credits'
 });
 
 main.show();
 
 main.on('click', 'up', function(e) {
-  var menu = new UI.Menu({
-    sections: [{
-      items: [{
-        title: 'Dancing mode',
-        icon: 'images/menu_icon.png',
-        subtitle: 'Start dancing!'
-      }, {
-        title: 'Party mode',
-        subtitle: 'Start your music!'
-      }, {
-        title: 'Trammel mode',
-        subtitle: 'You do you!'
-      }]
-    }]
-  });
-  menu.on('select', function(e) {
-    console.log('Selected item #' + e.itemIndex + ' of section #' + e.sectionIndex);
-    console.log('The item is titled "' + e.item.title + '"');
-  });
-  menu.show();
+  var card = new UI.Card();
+  card.title('Instructions:');
+  card.subtitle('');
+  card.body('Press the select button on the main screen. Then start dancing and your music will start. If you stop dancing your music will stop as well.');
+  card.show();
 });
 
 main.on('click', 'select', function(e) {
@@ -39,7 +24,7 @@ main.on('click', 'select', function(e) {
     position: new Vector2(0, 50),
     size: new Vector2(144, 30),
     font: 'gothic-24-bold',
-    text: 'Fancy Text!',
+    text: 'Start Dancing!',
     textAlign: 'center'
   });
   wind.add(textfield);
@@ -49,7 +34,7 @@ main.on('click', 'select', function(e) {
 main.on('click', 'down', function(e) {
   var card = new UI.Card();
   card.title('About this app');
-  card.subtitle('Its for a hackathon');
-  card.body('by Joe Trammel, Alex Foster, and the Genius Goff');
+  card.subtitle('Made for HackIllinois');
+  card.body('by Joe Trammel, Alex Foster, and Adam Goff');
   card.show();
 });
